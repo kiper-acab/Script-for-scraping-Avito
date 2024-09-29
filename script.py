@@ -69,7 +69,7 @@ def main(product):
             characteristics[str(id)] = {'Информация о продавце': {'Рейтинг': raiting, 'Имя': name}}, {'Цена': price}, {'Ссылка на товар': link}, {'Характеристики товара': result}
 
         
-        with open('video_cards.json', 'w', encoding='utf-8') as f:
+        with open('info.json', 'w', encoding='utf-8') as f:
             json.dump(characteristics, f, indent=4, ensure_ascii=False)
         print('Файл успешно сохранён в json')
 
@@ -85,6 +85,6 @@ def main(product):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('product', help='Впишите название товара, который хотите спарсить')
+    parser.add_argument('product', help='Впишите название товара, который хотите спарсить', nargs='*')
     args = parser.parse_args()
-    main(args.product)
+    main(' '.join(args.product))
