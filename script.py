@@ -32,11 +32,7 @@ def main(product):
         for id, product in enumerate(products):
             link = product.find_element(By.TAG_NAME, 'a').get_attribute('href')
             links.append(link)
-        
-
-        p = Pool()
-
-
+    
         for id, link in enumerate(links):
             product = driver.get(link)
             print(f'Собираем информацию с ссылки №{id}...')
